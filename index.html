@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090a0c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Syndicate">
+<link rel="manifest" href="manifest.webmanifest">
+<title>SYNDICATE Wallet</title>
+<style>
+:root{--bg:#090a0c;--panel:#141518;--panel2:#1b1c20;--gold:#d6b56c;--muted:#92939a;--white:#f6f4ef;--line:#292a2e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:88px}
+header{padding:calc(env(safe-area-inset-top) + 18px) 22px 18px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-size:21px;font-weight:900;letter-spacing:3px;color:var(--gold)}.sub{font-size:9px;letter-spacing:2px;color:var(--muted);margin-top:4px}
+.avatar{border:1px solid #51452d;color:var(--gold);width:39px;height:39px;border-radius:50%;display:grid;place-items:center}
+main{padding:8px 18px 24px;max-width:520px;margin:auto}.eyebrow{font-size:11px;letter-spacing:1.5px;color:var(--muted);font-weight:700}
+.card{background:linear-gradient(145deg,#242321,#121316 75%);border:1px solid #51452d;border-radius:23px;padding:22px;margin:8px 0 20px;box-shadow:0 14px 38px #0006}
+.balance{font-size:36px;font-weight:750;letter-spacing:-1.5px;margin:12px 0 6px}.demo{display:inline-block;border-radius:20px;padding:5px 9px;background:#45391f;color:var(--gold);font-size:10px;font-weight:800;letter-spacing:1px}
+.note{font-size:12px;color:#aaa;margin-top:8px;line-height:1.45}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:18px 0 25px}.action{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:15px 5px;text-align:center;color:var(--gold);font-size:12px;font-weight:700}.ico{font-size:20px;display:block;margin-bottom:7px}
+.section-title{display:flex;justify-content:space-between;align-items:center;margin:25px 2px 12px}.section-title h2{font-size:13px;letter-spacing:1.4px;margin:0}.muted{color:var(--muted);font-size:11px}
+.asset,.row{display:flex;align-items:center;gap:12px;padding:15px;background:var(--panel);border:1px solid var(--line);border-radius:16px;margin:9px 0}.coin{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#29261f;color:var(--gold);font-size:21px;font-weight:800}.grow{flex:1}.name{font-weight:700;font-size:14px}.ticker{font-size:11px;color:var(--muted);margin-top:4px}.right{text-align:right}.value{font-weight:700;font-size:13px}
+.notice{border:1px solid #57492d;background:#1d1a14;color:#d9c18c;padding:13px;border-radius:14px;font-size:11px;line-height:1.5;margin-top:18px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#101114ee;backdrop-filter:blur(16px);border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:11px 5px calc(env(safe-area-inset-bottom) + 10px);z-index:5}
+nav button{background:none;border:0;color:var(--muted);font-size:10px;display:grid;gap:5px;justify-items:center}nav button.active{color:var(--gold)}nav span{font-size:19px}
+.view{display:none}.view.active{display:block}
+button.primary{background:var(--gold);color:#17140e;border:0;border-radius:13px;padding:14px 18px;font-weight:800;width:100%;margin-top:14px}
+button.secondary{background:var(--panel2);color:var(--white);border:1px solid var(--line);border-radius:13px;padding:13px;width:100%;margin-top:10px}
+input,select{width:100%;padding:14px;background:#101114;border:1px solid var(--line);border-radius:12px;color:white;margin:8px 0 14px;font-size:15px}
+label{font-size:12px;color:#bbb}
+.smallprint{font-size:11px;color:var(--muted);line-height:1.5}
+.qr{width:150px;height:150px;margin:18px auto;background:repeating-conic-gradient(#eee 0% 25%,#222 0% 50%) 50%/18px 18px;border:8px solid white}
+.center{text-align:center}.bigicon{font-size:42px;color:var(--gold);margin:18px}
+</style>
+</head>
+<body>
+<header><div><div class="brand">SYNDICATE</div><div class="sub">NON-CUSTODIAL WALLET</div></div><div class="avatar">S</div></header>
+<main>
+<section id="home" class="view active">
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center"><span class="eyebrow">TOTAL PORTFOLIO</span><span class="demo">DEMO</span></div>
+    <div class="balance">$0.00</div>
+    <div class="note">Your live balance will appear after a secure wallet engine and network connection are integrated.</div>
+  </div>
+  <div class="actions">
+    <div class="action" onclick="show('send')"><span class="ico">↗</span>Send</div>
+    <div class="action" onclick="show('receive')"><span class="ico">↙</span>Receive</div>
+    <div class="action" onclick="show('assets')"><span class="ico">⇄</span>Assets</div>
+  </div>
+  <div class="section-title"><h2>YOUR ASSETS</h2><span class="muted">2 ASSETS</span></div>
+  <div class="asset"><div class="coin">₿</div><div class="grow"><div class="name">Bitcoin</div><div class="ticker">BTC · Bitcoin network</div></div><div class="right"><div class="value">0.000000 BTC</div><div class="ticker">$0.00</div></div></div>
+  <div class="asset"><div class="coin">₮</div><div class="grow"><div class="name">Tether</div><div class="ticker">USDT · Network not selected</div></div><div class="right"><div class="value">0.00 USDT</div><div class="ticker">$0.00</div></div></div>
+  <div class="notice">Prototype only: no private keys, real balances, blockchain transactions, deposits or withdrawals are active. Never send funds to this demo.</div>
+</section>
+<section id="assets" class="view">
+ <div class="section-title"><h2>ASSETS</h2><span class="muted">WALLET OVERVIEW</span></div>
+ <div class="asset"><div class="coin">₿</div><div class="grow"><div class="name">Bitcoin</div><div class="ticker">BTC · Native Bitcoin</div></div><div class="right"><div class="value">0.000000</div><div class="ticker">$0.00</div></div></div>
+ <div class="asset"><div class="coin">₮</div><div class="grow"><div class="name">Tether</div><div class="ticker">USDT · Choose network before use</div></div><div class="right"><div class="value">0.00</div><div class="ticker">$0.00</div></div></div>
+ <div class="notice">USDT exists on multiple blockchains. The receiving and sending network must match exactly. Network selection and validation must be implemented before real use.</div>
+</section>
+<section id="send" class="view">
+ <div class="section-title"><h2>SEND CRYPTO</h2></div>
+ <div class="notice">Sending is disabled in this prototype. A real send flow must validate the chain, address, amount, network fee and final signed transaction before broadcast.</div>
+ <label>Asset</label><select disabled><option>Bitcoin (BTC)</option><option>USDT</option></select>
+ <label>Recipient address</label><input disabled placeholder="Recipient wallet address">
+ <label>Amount</label><input disabled placeholder="0.00" inputmode="decimal">
+ <button class="primary" disabled style="opacity:.45">Send disabled in demo</button>
+</section>
+<section id="receive" class="view center">
+ <div class="section-title"><h2>RECEIVE CRYPTO</h2></div>
+ <div class="bigicon">⌁</div><h3>Receive crypto securely</h3>
+ <p class="smallprint">A real deposit address will be displayed here after wallet creation and network selection.</p>
+ <div class="qr"></div><span class="demo">PLACEHOLDER — NOT A REAL QR CODE</span>
+ <button class="secondary" disabled>Copy address unavailable</button>
+</section>
+<section id="activity" class="view">
+ <div class="section-title"><h2>ACTIVITY</h2></div>
+ <div class="center" style="padding:45px 12px"><div class="bigicon">◷</div><h3>No transactions yet</h3><p class="smallprint">Verified blockchain activity will appear here after network integration. Nothing is being simulated.</p></div>
+</section>
+<section id="profile" class="view">
+ <div class="section-title"><h2>SECURITY & SETTINGS</h2></div>
+ <div class="row"><div class="grow"><div class="name">Wallet security</div><div class="ticker">Face ID, passcode and secure key storage</div></div><span>›</span></div>
+ <div class="row"><div class="grow"><div class="name">Recovery phrase</div><div class="ticker">Created only during secure wallet setup</div></div><span>›</span></div>
+ <div class="row"><div class="grow"><div class="name">Network settings</div><div class="ticker">Bitcoin and supported USDT networks</div></div><span>›</span></div>
+ <div class="notice">Never share your recovery phrase or private keys with anyone, including support staff. This prototype does not generate or store keys.</div>
+</section>
+</main>
+<nav>
+<button class="active" data-view="home" onclick="show('home',this)"><span>⌂</span>Home</button>
+<button data-view="assets" onclick="show('assets',this)"><span>◈</span>Assets</button>
+<button data-view="activity" onclick="show('activity',this)"><span>◷</span>Activity</button>
+<button data-view="profile" onclick="show('profile',this)"><span>⚙</span>Settings</button>
+</nav>
+<script>
+function show(id,btn){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');else{const b=document.querySelector('nav button[data-view="'+id+'"]');if(b)b.classList.add('active')}window.scrollTo(0,0)}
+if('serviceWorker' in navigator && location.protocol.startsWith('http')){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
+</script>
+</body>
+</html>

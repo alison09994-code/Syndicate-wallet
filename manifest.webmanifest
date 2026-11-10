@@ -1,0 +1,9 @@
+{
+  "name": "SYNDICATE Wallet",
+  "short_name": "Syndicate",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090a0c",
+  "theme_color": "#090a0c",
+  "description": "SYNDICATE non-custodial wallet prototype"
+}
